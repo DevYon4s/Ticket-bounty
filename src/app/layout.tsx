@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { buttonVariants } from "@/components/ui/button"
 import "./globals.css";
+import Link from "next/link";
+import { homepath, tickets } from "@/path";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +30,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-secondary/80 backdrop-blur-md border-b border-gray-200 px-8 py-4">
+          <div>
+
+            <Link href={homepath()} className={buttonVariants({ variant: "outline" })}>Home</Link>
+
+          </div>
+          <div>
+            <Link href={tickets()} className={buttonVariants({ variant: "link" })}>Tickets</Link>
+          </div>
+        </nav>
+        <main className="min-h-screen flex-1 overflow-y-auto overflow-x-hidden py-24 px-8 bg-secondary/20 flex flex-col">{children}</main>
+
       </body>
     </html>
   );
