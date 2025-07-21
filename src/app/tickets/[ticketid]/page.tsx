@@ -1,3 +1,5 @@
+import { Placeholder } from "@/components/placeholder";
+import { Button } from "@/components/ui/button";
 import { tickets } from "@/data";
 import { tickets as ticketspath } from "@/path";
 import Link from "next/link";
@@ -11,11 +13,17 @@ async function TicketId({ params }: TicketId) {
     const ticket = tickets.find((t) => t.id.toString() === ticketid);
     if (!ticket) {
         return (
-            <div>
 
-                <h1 className="text-2xl font-bold text-red-600"
-                >Ticket not found</h1>
-            </div>
+            <Placeholder label="The ticket you are looking for does not exist."
+                button={
+                    <Button asChild variant="outline">
+                        <Link href={ticketspath()}>Back to tickets</Link>
+                    </Button>
+                }
+            />
+
+
+
         );
     }
 

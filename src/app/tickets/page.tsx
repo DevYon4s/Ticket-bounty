@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/card"
 import { buttonVariants } from "@/components/ui/button";
 import { Heading } from "@/components/heading";
-import { Ticket } from "lucide-react";
 const Page = () => {
     return (
         <div className="flex-1 flex flex-col gap-y-8">
