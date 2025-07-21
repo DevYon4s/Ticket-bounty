@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { tickets } from "@/path";
+import { Heading } from "@/components/heading";
 const Home = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">Tickets</h1>
-      <Link className="mt-4 text-lg" href={tickets()}>
-        Go to tickets
-      </Link>
-    </div>
+    <>
+      <Heading title="Home" description="start here" />
+      <div className="flex-1 flex flex-col items-center gap-y-4">
+        <Link className="mt-4 text-lg" href={tickets()}>
+          Go to tickets
+        </Link></div>
+    </>
   );
 }
 
