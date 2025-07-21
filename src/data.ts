@@ -1,4 +1,6 @@
-export const tickets = [
+import type { Ticket } from "./features/tickets/types";
+
+export const tickets: Ticket[] = [
   {
     id: 1,
     title: "Ticket #1",
