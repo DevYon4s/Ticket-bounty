@@ -1,6 +1,7 @@
 import { Placeholder } from "@/components/placeholder";
 import { Button } from "@/components/ui/button";
 import { tickets } from "@/data";
+import { Ticketitem } from "@/features/tickets/components/ticket-item";
 import { tickets as ticketspath } from "@/path";
 import Link from "next/link";
 type TicketId = {
@@ -11,6 +12,7 @@ type TicketId = {
 async function TicketId({ params }: TicketId) {
     const { ticketid } = await params;
     const ticket = tickets.find((t) => t.id.toString() === ticketid);
+
     if (!ticket) {
         return (
 
@@ -23,16 +25,14 @@ async function TicketId({ params }: TicketId) {
             />
 
 
-
         );
     }
 
     return (
         <>
-            <h1>Tickets {ticket.title}</h1>
-            <p>Status: {ticket.status}</p>
-            <Link href={ticketspath()}
-            >Back to tickets</Link>
+            <div className="flex justify-center"> <Ticketitem ticket={ticket} isdetail /></div>
+
+
         </>
     );
 }
