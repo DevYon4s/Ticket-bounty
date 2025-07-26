@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { tickets } from "@/path";
 import { Heading } from "@/components/heading";
+
 const Home = () => {
   return (
     <>
